@@ -1,0 +1,35 @@
+{
+  "name": "slack-support-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "A Slack support agent: an intake app and a BullMQ worker that runs a tool-using agent to investigate support requests across read-only tools.",
+  "license": "MIT",
+  "author": "Joe Garber",
+  "repository": { "type": "git", "url": "https://github.com/joegarb/slack-support-agent.git" },
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "intake": "tsx intake/index.ts",
+    "worker": "tsx worker/index.ts",
+    "simulate": "tsx intake/simulate.ts",
+    "redis:up": "docker compose up -d",
+    "redis:down": "docker compose down",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.40",
+    "@ai-sdk/openai": "^4.0.45",
+    "@slack/bolt": "^3.22.0",
+    "@slack/web-api": "^8.0.0",
+    "ai": "^7.0.73",
+    "bullmq": "^5.28.0",
+    "dotenv": "^16.4.5",
+    "ioredis": "^5.4.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
