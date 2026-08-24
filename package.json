@@ -6,8 +6,13 @@
   "description": "A Slack support agent: an intake app and a BullMQ worker that runs a tool-using agent to investigate support requests across read-only tools.",
   "license": "MIT",
   "author": "Joe Garber",
-  "repository": { "type": "git", "url": "https://github.com/joegarb/slack-support-agent.git" },
-  "engines": { "node": ">=18" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joegarb/slack-support-agent.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "intake": "tsx intake/index.ts",
     "worker": "tsx worker/index.ts",
@@ -30,6 +35,6 @@
   "devDependencies": {
     "@types/node": "^26.2.0",
     "tsx": "^4.19.0",
-    "typescript": "^5.6.0"
+    "typescript": "^7.0.2"
   }
 }
