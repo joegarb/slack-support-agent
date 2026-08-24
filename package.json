@@ -12,7 +12,7 @@
     "intake": "tsx intake/index.ts",
     "worker": "tsx worker/index.ts",
     "simulate": "tsx intake/simulate.ts",
-    "redis:up": "docker compose up -d",
+    "redis:up": "docker compose up -d redis",
     "redis:down": "docker compose down",
     "typecheck": "tsc --noEmit"
   },

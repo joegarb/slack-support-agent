@@ -1,5 +1,35 @@
 services:
   redis:
+    container_name: redis
     image: redis:7-alpine
     ports:
       - "6379:6379"
+
+  intake:
+    container_name: intake
+    build:
+      context: .
+      dockerfile: intake/Dockerfile
+    env_file: .env
+    environment:
+      REDIS_URL: redis://redis:6379
+    ports:
+      - "${PORT:-8080}:${PORT:-8080}" # only used in Events API (HTTP) mode
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  worker:
+    container_name: worker
+    build:
+      context: .
+      dockerfile: worker/Dockerfile
+    env_file: .env
+    environment:
+      REDIS_URL: redis://redis:6379
+      # CODE_REPO_DIR: /repo  # uncomment with the volume below to enable code search
+    depends_on:
+      - redis
+    restart: unless-stopped
+    # volumes:
+    #   - /path/to/your-app:/repo:ro

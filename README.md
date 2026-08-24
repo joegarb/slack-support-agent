@@ -69,7 +69,9 @@ the mentioned thread via `conversations.replies`.
 
 ## Run it
 
-Requires Node 18+, Docker (for Redis), and an API key for your chosen provider.
+Requires Node 18+ and Docker, plus an API key for your chosen provider.
+
+### Locally
 
 ```bash
 npm install
@@ -85,3 +87,15 @@ npm run redis:down
 watch a full investigation without Slack credentials.
 
 To connect a real workspace, fill in `.env` and run `npm run intake`.
+
+### With Docker Compose
+
+Fill in `.env` (provider key plus Slack tokens), then build and start Redis, intake, and the worker:
+
+```bash
+docker compose up -d --build
+docker compose logs -f worker    # watch investigations
+docker compose down
+```
+
+To enable code search, uncomment the volume and `CODE_REPO_DIR` in `docker-compose.yml`.
