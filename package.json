@@ -19,7 +19,8 @@
     "simulate": "tsx intake/simulate.ts",
     "redis:up": "docker compose up -d redis",
     "redis:down": "docker compose down",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^4.0.40",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@types/node": "^26.2.0",
     "tsx": "^4.19.0",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
   }
 }
