@@ -1,4 +1,4 @@
-FROM node:22-bookworm-slim
+FROM node:26-bookworm-slim
 
 # ripgrep powers the code-search tool (it falls back to a Node scan if absent)
 RUN apt-get update \
