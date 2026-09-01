@@ -15,12 +15,15 @@ jobs:
         id: meta
         uses: dependabot/fetch-metadata@v3
 
-      # Auto-merge every GitHub Actions update, major included: actions bump majors
-      # often (usually just a runner/runtime change) and the CI test gate blocks
-      # anything that actually breaks the build. npm and docker updates still need
-      # manual review for majors.
-      - name: Enable auto-merge for all GitHub Actions updates
-        if: steps.meta.outputs.package-ecosystem == 'github_actions'
+      # Auto-merge all patch/minor updates, plus every GitHub Actions update
+      # including majors: actions bumps are usually just a runner/runtime change
+      # and the CI test gate blocks anything that breaks the build. Majors in
+      # other ecosystems (npm, docker) still need manual review.
+      - name: Enable auto-merge
+        if: >-
+          steps.meta.outputs.update-type == 'version-update:semver-patch' ||
+          steps.meta.outputs.update-type == 'version-update:semver-minor' ||
+          steps.meta.outputs.package-ecosystem == 'github_actions'
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
