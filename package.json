@@ -11,7 +11,7 @@
     "url": "https://github.com/joegarb/slack-support-agent.git"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "scripts": {
     "intake": "tsx intake/index.ts",
