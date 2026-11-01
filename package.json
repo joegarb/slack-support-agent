@@ -23,19 +23,19 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@ai-sdk/anthropic": "^4.0.56",
-    "@ai-sdk/openai": "^4.0.69",
+    "@ai-sdk/anthropic": "^4.0.82",
+    "@ai-sdk/openai": "^4.0.96",
     "@slack/bolt": "^5.1.0",
-    "@slack/web-api": "^8.0.0",
-    "ai": "^7.0.105",
-    "bullmq": "^6.3.6",
+    "@slack/web-api": "^8.2.0",
+    "ai": "^7.0.143",
+    "bullmq": "^6.3.16",
     "dotenv": "^17.4.2",
     "ioredis": "^6.0.0",
     "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@types/node": "^26.6.1",
-    "tsx": "^4.23.13",
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vitest": "^5.0.5"
   }
